@@ -266,14 +266,18 @@
                     </div>
 
                     <div class="pt-6">
-                         <label class="block text-base font-bold text-gray-800 mb-3">Anexos (Opcional)</label>
-                        <div class="border-4 border-dashed border-green-100 p-10 text-center rounded-2xl bg-white hover:bg-green-50 cursor-pointer relative transition-all group">
-                            <input type="file" name="anexos" id="fileInput" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
-                            <i class="fa-solid fa-cloud-arrow-up text-apaeGreen text-5xl mb-4 group-hover:scale-110 transition-transform"></i>
-                            <span id="fileName" class="block text-base font-bold text-gray-700 group-hover:text-apaeGreen">Clique ou arraste arquivos aqui</span>
-                            <p class="text-xs text-gray-400 mt-2 italic font-medium">Formatos aceitos: PDF, Imagens, Excel, Word</p>
-                        </div>
-                    </div>
+    <label class="block text-base font-bold text-gray-800 mb-3">Anexos (Opcional)</label>
+    
+    <div class="border-4 border-dashed border-green-100 p-10 text-center rounded-2xl bg-white hover:bg-green-50 cursor-pointer relative transition-all group">
+        <input type="file" id="fileInput" multiple class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
+        <i class="fa-solid fa-cloud-arrow-up text-apaeGreen text-5xl mb-4 group-hover:scale-110 transition-transform"></i>
+        <span class="block text-base font-bold text-gray-700 group-hover:text-apaeGreen">Clique ou arraste múltiplos arquivos</span>
+        <p class="text-xs text-gray-400 mt-2 italic font-medium">PDF, Imagens, Excel, Word</p>
+    </div>
+
+    <div id="fileList" class="mt-4 space-y-2">
+        </div>
+</div>
                 </div>
             </div>
 
@@ -324,12 +328,14 @@
     </footer>
 
     <script>
-    // 1. Data e Barra de Progresso
+    // 1. DATA AUTOMÁTICA E INICIALIZAÇÃO
     document.addEventListener('DOMContentLoaded', () => {
-        document.getElementById('data_proposta_hidden').value = new Date().toLocaleDateString('pt-BR');
+        const dataCampo = document.getElementById('data_proposta_hidden');
+        if(dataCampo) dataCampo.value = new Date().toLocaleDateString('pt-BR');
         reveal();
     });
 
+    // 2. BARRA DE PROGRESSO E REVEAL AO SCROLL
     window.onscroll = function() {
         let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
         let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -338,19 +344,18 @@
         reveal();
     };
 
-    // 2. Animação Scroll
     function reveal() {
         let reveals = document.querySelectorAll(".reveal");
-        for (let i = 0; i < reveals.length; i++) {
+        reveals.forEach(el => {
             let windowHeight = window.innerHeight;
-            let elementTop = reveals[i].getBoundingClientRect().top;
+            let elementTop = el.getBoundingClientRect().top;
             if (elementTop < windowHeight - 100) {
-                reveals[i].classList.add("active");
+                el.classList.add("active");
             }
-        }
+        });
     }
 
-    // 3. Confete
+    // 3. EFEITO DE CONFETE (CELEBRAÇÃO)
     function dispararConfete() {
         var duration = 4 * 1000;
         var end = Date.now() + duration;
@@ -361,25 +366,57 @@
         }());
     }
 
-    // 4. Arquivos
+    // 4. GESTÃO DE MÚLTIPLOS ARQUIVOS
+    let selectedFiles = []; 
     const fileInput = document.getElementById('fileInput');
-    const fileNameSpan = document.getElementById('fileName');
-    let base64File = "";
-    let fileName = "";
+    const fileListContainer = document.getElementById('fileList');
 
     fileInput.addEventListener('change', (e) => {
-        const file = e.target.files[0];
-        if (file) {
-            fileName = file.name;
-            fileNameSpan.textContent = '✅ Pronto: ' + fileName;
-            fileNameSpan.classList.add('text-apaeGreen', 'font-black');
+        const files = Array.from(e.target.files);
+        
+        files.forEach(file => {
             const reader = new FileReader();
-            reader.onload = (event) => { base64File = event.target.result; };
+            reader.onload = (event) => {
+                selectedFiles.push({
+                    name: file.name,
+                    type: file.type,
+                    size: (file.size / 1024).toFixed(1) + " KB",
+                    base64: event.target.result
+                });
+                renderFileList();
+            };
             reader.readAsDataURL(file);
-        }
+        });
+        fileInput.value = ""; // Limpa para permitir re-seleção
     });
 
-    // 5. Envio (URLSearchParams para compatibilidade no-cors)
+    function renderFileList() {
+        fileListContainer.innerHTML = "";
+        selectedFiles.forEach((file, index) => {
+            const fileDiv = document.createElement('div');
+            fileDiv.className = "flex items-center justify-between bg-white p-3 rounded-xl border border-gray-200 shadow-sm transition-all animate-fade-in mb-2";
+            fileDiv.innerHTML = `
+                <div class="flex items-center overflow-hidden">
+                    <i class="fa-solid fa-file-lines text-apaeGreen mr-3"></i>
+                    <div class="truncate">
+                        <p class="text-xs font-bold text-gray-700 truncate">${file.name}</p>
+                        <p class="text-[10px] text-gray-400">${file.size}</p>
+                    </div>
+                </div>
+                <button type="button" onclick="removeFile(${index})" class="text-red-400 hover:text-red-600 p-2 ml-2 transition">
+                    <i class="fa-solid fa-trash-can"></i>
+                </button>
+            `;
+            fileListContainer.appendChild(fileDiv);
+        });
+    }
+
+    function removeFile(index) {
+        selectedFiles.splice(index, 1);
+        renderFileList();
+    }
+
+    // 5. ENVIO E INTEGRAÇÃO DOS DADOS
     const form = document.getElementById('hubForm');
     const scriptURL = 'https://script.google.com/macros/s/AKfycbzuP6MMjQeacZtlG_zcvIf02vyapmtTWZrjduoHFxNVnfE0a8XPb7XXc-gJd7U6dajW/exec';
 
@@ -387,16 +424,23 @@
         e.preventDefault();
         const btn = form.querySelector('button[type="submit"]');
         btn.disabled = true;
-        btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-3"></i> PROCESSANDO...';
+        btn.innerHTML = '<i class="fa-solid fa-fan fa-spin mr-3"></i> PROCESSANDO...';
 
         const formData = new FormData(form);
         const dataObj = Object.fromEntries(formData.entries());
         
+        // Coleta de Recursos (Checkboxes + Campo "Outros")
         const recursos = [];
         form.querySelectorAll('input[name="recurso[]"]:checked').forEach(cb => { recursos.push(cb.value); });
+        
+        const campoOutros = form.querySelector('input[name="recurso_outros"]');
+        if (campoOutros && campoOutros.value.trim() !== "") {
+            recursos.push("Outros: " + campoOutros.value);
+        }
         dataObj.recurso = recursos.join(", ");
-        dataObj.fileData = base64File;
-        dataObj.fileName = fileName;
+
+        // Inserção dos múltiplos arquivos (enviados como String JSON)
+        dataObj.allFiles = JSON.stringify(selectedFiles);
 
         fetch(scriptURL, { 
             method: 'POST', 
@@ -411,12 +455,13 @@
             dispararConfete();
             window.scrollTo(0, 0);
         })
-        .catch(() => {
-            alert('Falha na conexão. Verifique o script.');
+        .catch((error) => {
+            console.error('Erro:', error);
+            alert('Falha na conexão. Tente novamente.');
             btn.disabled = false;
             btn.innerHTML = 'ENVIAR PARA CAPTAÇÃO <i class="fa-solid fa-paper-plane ml-3"></i>';
         });
     });
-    </script>
+</script>
 </body>
 </html>
