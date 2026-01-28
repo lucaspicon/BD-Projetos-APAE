@@ -24,11 +24,41 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <style>
-        body { font-family: 'Montserrat', sans-serif; background-color: #F9FBF9; }
+        /* DICA 3: Fundo com Marca d'Água Sutil */
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            background-color: #F9FBF9;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23008040' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4v-4H4v4H0v2h4v4h2v-4h4v-2H6zM36 4v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
         .tilda-shadow { 
             box-shadow: 0 20px 40px -10px rgba(0,0,0,0.05), 0 10px 20px -5px rgba(0,0,0,0.02); 
             transition: all 0.3s ease;
         }
+
+        /* DICA 1: Estilo da Barra de Progresso */
+        #progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 5px;
+            background: #F5A623;
+            width: 0%;
+            z-index: 9999;
+            transition: width 0.2s ease;
+        }
+
+        /* DICA 2: Animação de Entrada (Reveal) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         .input-focus {
             transition: all 0.3s ease-in-out;
             border-width: 2px;
@@ -41,7 +71,9 @@
         .hidden-state { display: none; }
     </style>
 </head>
-<body class="text-gray-800 bg-gray-50">
+<body class="text-gray-800">
+
+    <div id="progress-bar"></div>
 
     <header class="bg-apaeGreen text-white py-24 px-6 relative text-center">
         <div class="max-w-4xl mx-auto relative z-10">
@@ -60,7 +92,7 @@
         </div>
     </div>
 
-    <section id="main-form-section" class="max-w-6xl mx-auto -mt-12 px-4 mb-20 relative z-20 text-center">
+    <section id="main-form-section" class="max-w-6xl mx-auto -mt-12 px-4 mb-20 relative z-20 text-center reveal">
         <div class="bg-white rounded-3xl tilda-shadow p-10 md:p-16 border border-gray-100">
             <p class="text-xl leading-relaxed text-gray-700 font-medium mb-12">
                 Para modernizar e dar agilidade à nossa Captação de Recursos, o <strong>Hub de Projetos</strong> agora é o canal oficial e obrigatório para a formalização de necessidades em todas as áreas da APAE.
@@ -83,9 +115,10 @@
     </section>
 
     <main id="form-container" class="max-w-5xl mx-auto px-4 mb-32">
-        <form id="hubForm" class="space-y-12"> <input type="hidden" name="data_proposta" id="data_proposta_hidden">
+        <form id="hubForm" class="space-y-12">
+            <input type="hidden" name="data_proposta" id="data_proposta_hidden">
 
-            <div class="bg-white rounded-2xl tilda-shadow overflow-hidden">
+            <div class="bg-white rounded-2xl tilda-shadow overflow-hidden reveal">
                 <div class="bg-apaeGreen p-6 flex items-center">
                     <i class="fa-solid fa-user-circle text-apaeYellow text-2xl mr-4 pl-4"></i>
                     <h3 class="text-lg font-bold text-white uppercase tracking-widest">1. Identificação</h3>
@@ -114,7 +147,7 @@
                 </div>
             </div>
 
-            <div class="bg-white rounded-2xl tilda-shadow overflow-hidden">
+            <div class="bg-white rounded-2xl tilda-shadow overflow-hidden reveal">
                  <div class="bg-apaeGreen p-6 flex items-center">
                     <i class="fa-solid fa-stethoscope text-apaeYellow text-2xl mr-4 pl-4"></i>
                     <h3 class="text-lg font-bold text-white uppercase tracking-widest">2. Diagnóstico e Impacto</h3>
@@ -143,12 +176,13 @@
                 </div>
             </div>
 
-            <div class="bg-white rounded-2xl tilda-shadow overflow-hidden">
+            <div class="bg-white rounded-2xl tilda-shadow overflow-hidden reveal">
                  <div class="bg-apaeGreen p-6 flex items-center">
                     <i class="fa-solid fa-coins text-apaeYellow text-2xl mr-4 pl-4"></i>
                     <h3 class="text-lg font-bold text-white uppercase tracking-widest">3. Viabilidade e Recursos</h3>
                 </div>
-                <div class="p-10 space-y-12 bg-gray-50"> <div>
+                <div class="p-10 space-y-12 bg-gray-50"> 
+                    <div>
                         <label class="block text-base font-bold text-gray-800 mb-6">Recurso necessário *</label>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <label class="flex items-center p-4 border-2 border-white bg-white rounded-xl cursor-pointer hover:border-apaeGreen transition shadow-sm">
@@ -192,23 +226,20 @@
                         <label class="block text-base font-bold text-gray-800 mb-6 tracking-tight">A execução necessita de serviços especializados? *</label>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                             <label class="flex items-center p-5 border-2 border-white bg-white rounded-xl text-sm cursor-pointer hover:border-apaeGreen transition shadow-sm">
-                                <input type="radio" name="especializado" value="Não" class="w-5 h-5 accent-apaeGreen mr-3" required> 
-                                Não, compra ou instalação simples
+                                <input type="radio" name="especializado" value="Não" class="w-5 h-5 accent-apaeGreen mr-3" required> Não
                             </label>
                             <label class="flex items-center p-5 border-2 border-white bg-white rounded-xl text-sm cursor-pointer hover:border-apaeGreen transition shadow-sm">
-                                <input type="radio" name="especializado" value="Sim" class="w-5 h-5 accent-apaeGreen mr-3"> 
-                                Sim (Engenharia, obras, laudos)
+                                <input type="radio" name="especializado" value="Sim" class="w-5 h-5 accent-apaeGreen mr-3"> Sim
                             </label>
                             <label class="flex items-center p-5 border-2 border-white bg-white rounded-xl text-sm cursor-pointer hover:border-apaeGreen transition shadow-sm">
-                                <input type="radio" name="especializado" value="Não sei" class="w-5 h-5 accent-apaeGreen mr-3"> 
-                                Não sei informar
+                                <input type="radio" name="especializado" value="Não sei" class="w-5 h-5 accent-apaeGreen mr-3"> Não sei
                             </label>
                         </div>
                     </div>
 
                     <div class="pt-4">
-                        <label class="block text-base font-bold text-gray-800 mb-4  tracking-tight">Observações Adicionais</label>
-                        <textarea name="observacoes" rows="4" class="input-focus w-full p-5 border-2 border-gray-200 rounded-xl bg-white" placeholder="Espaço para detalhes extras sobre o projeto..."></textarea>
+                        <label class="block text-base font-bold text-gray-800 mb-4 tracking-tight">Observações Adicionais</label>
+                        <textarea name="observacoes" rows="4" class="input-focus w-full p-5 border-2 border-gray-200 rounded-xl bg-white" placeholder="Espaço para detalhes extras..."></textarea>
                     </div>
 
                     <div class="pt-6">
@@ -217,13 +248,12 @@
                             <input type="file" name="anexos" id="fileInput" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
                             <i class="fa-solid fa-cloud-arrow-up text-apaeGreen text-5xl mb-4 group-hover:scale-110 transition-transform"></i>
                             <span id="fileName" class="block text-base font-bold text-gray-700 group-hover:text-apaeGreen">Clique ou arraste arquivos aqui</span>
-                            <p class="text-xs text-gray-400 mt-2 italic font-medium">Formatos aceitos: PDF, Imagens, Excel, Word</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="pt-20 pb-10 flex flex-col items-center">
+            <div class="pt-20 pb-10 flex flex-col items-center reveal">
                 <button type="submit" class="w-full md:w-2/3 bg-apaeGreen hover:bg-green-800 text-white font-bold py-6 rounded-full text-2xl shadow-xl transition-all transform hover:scale-[1.03] flex items-center justify-center">
                     ENVIAR PARA CAPTAÇÃO <i class="fa-solid fa-paper-plane ml-4 text-lg"></i>
                 </button>
@@ -239,25 +269,15 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-16 items-start text-center md:text-left">
                 <div class="space-y-4">
                     <h4 class="text-apaeGreen font-bold uppercase tracking-wide">Endereço</h4>
-                    <p class="text-sm text-gray-600 leading-relaxed">
-                        Av. Hugo Schlosser, 236 - Jardim Maluche,<br>Brusque - SC, 88354-300
-                    </p>
-                    <div class="mt-6">
-                        <p class="font-bold text-gray-800">(47) 3351-2482</p>
-                        <p class="text-apaeGreen font-medium text-sm">contato@apaebrusque.org.br</p>
-                    </div>
+                    <p class="text-sm text-gray-600 leading-relaxed">Av. Hugo Schlosser, 236 - Jardim Maluche,<br>Brusque - SC, 88354-300</p>
                 </div>
                 <div class="flex flex-col items-center">
                     <img src="logoFooter.png" alt="Logo APAE" class="h-52 w-auto">
                 </div>
                 <div class="space-y-8 flex flex-col items-center md:items-end">
-                    <div>
-                        <h4 class="text-apaeGreen font-bold mb-4 text-center md:text-right italic">Redes Sociais</h4>
-                        <div class="flex space-x-4">
-                            <a href="#" class="bg-apaeYellow p-3 rounded-xl hover:scale-110 transition shadow-sm"><i class="fa-brands fa-instagram text-xl"></i></a>
-                            <a href="#" class="bg-apaeYellow p-3 rounded-xl hover:scale-110 transition shadow-sm"><i class="fa-brands fa-youtube text-xl"></i></a>
-                            <a href="#" class="bg-apaeYellow p-3 rounded-xl hover:scale-110 transition shadow-sm"><i class="fa-brands fa-facebook-f text-xl"></i></a>
-                        </div>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-apaeYellow p-3 rounded-xl hover:scale-110 transition shadow-sm"><i class="fa-brands fa-instagram text-xl"></i></a>
+                        <a href="#" class="bg-apaeYellow p-3 rounded-xl hover:scale-110 transition shadow-sm"><i class="fa-brands fa-youtube text-xl"></i></a>
                     </div>
                     <p class="text-[10px] text-gray-400 uppercase font-bold tracking-[0.2em] mt-8">© 2026 APAE Brusque</p>
                 </div>
@@ -269,10 +289,35 @@
     </footer>
 
     <script>
+    // DATA AUTOMÁTICA
     document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('data_proposta_hidden').value = new Date().toLocaleDateString('pt-BR');
     });
 
+    // LÓGICA DA BARRA DE PROGRESSO
+    window.onscroll = function() {
+        let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        let scrolled = (winScroll / height) * 100;
+        document.getElementById("progress-bar").style.width = scrolled + "%";
+        
+        // GATILHO PARA AS ANIMAÇÕES DE REVELAÇÃO
+        reveal();
+    };
+
+    function reveal() {
+        let reveals = document.querySelectorAll(".reveal");
+        for (let i = 0; i < reveals.length; i++) {
+            let windowHeight = window.innerHeight;
+            let elementTop = reveals[i].getBoundingClientRect().top;
+            let elementVisible = 150;
+            if (elementTop < windowHeight - elementVisible) {
+                reveals[i].classList.add("active");
+            }
+        }
+    }
+
+    // ARQUIVOS
     const fileInput = document.getElementById('fileInput');
     const fileNameSpan = document.getElementById('fileName');
     let base64File = "";
@@ -290,6 +335,7 @@
         }
     });
 
+    // SUBMIT
     const form = document.getElementById('hubForm');
     const scriptURL = 'https://script.google.com/macros/s/AKfycbzuP6MMjQeacZtlG_zcvIf02vyapmtTWZrjduoHFxNVnfE0a8XPb7XXc-gJd7U6dajW/exec';
 
@@ -326,6 +372,9 @@
             btn.innerHTML = 'ENVIAR PARA CAPTAÇÃO <i class="fa-solid fa-paper-plane ml-3"></i>';
         });
     });
+
+    // Executa o reveal uma vez ao carregar para mostrar o topo
+    reveal();
     </script>
 </body>
 </html>
