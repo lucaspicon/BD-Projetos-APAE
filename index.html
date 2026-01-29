@@ -14,10 +14,11 @@
           theme: {
             extend: {
               colors: {
-                apaeGreen: '#008040', 
-                apaeYellow: '#F5A623',
-                apaeLight: '#F9FBF9',
-                apaeAccentGreen: '#E8F5E9' 
+                apaeGreen: '#73b057', 
+            apaeYellow: '#F5A623',
+            apaeLight: '#F9FBF9',
+            // Um tom de fundo bem clarinho baseado no novo verde
+            apaeAccentGreen: '#f1f8ee'
               }
             }
           }
@@ -28,51 +29,59 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <style>
-        /* 1. Scrollbar Personalizada */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #f1f1f1; }
-        ::-webkit-scrollbar-thumb { background: #008040; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #006633; }
+    /* 1. Scrollbar Personalizada */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #f1f1f1; }
+    ::-webkit-scrollbar-thumb { background: #73b057; border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: #5d8f46; }
 
-        body { 
-            font-family: 'Montserrat', sans-serif; 
-            background-color: #F9FBF9;
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23008040' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4v-4H4v4H0v2h4v4h2v-4h4v-2H6zM36 4v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        }
+    body { 
+        font-family: 'Montserrat', sans-serif; 
+        background-color: #F9FBF9;
+        /* Marca d'água sutil com o novo verde institucional */
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2373b057' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4v-4H4v4H0v2h4v4h2v-4h4v-2H6zM36 4v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
 
-        /* 2. Header Animado */
-        .animated-header {
-            background: linear-gradient(-45deg, #008040, #006633, #008040, #00994d);
-            background-size: 400% 400%;
-            animation: gradientShift 12s ease infinite;
-        }
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+    /* 2. Header Animado com Gradiente Dinâmico */
+    .animated-header {
+        background: linear-gradient(-45deg, #73b057, #5d8f46, #73b057, #8bc671);
+        background-size: 400% 400%;
+        animation: gradientShift 12s ease infinite;
+    }
+    @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
 
-        /* 3. Barra de Progresso */
-        #progress-bar {
-            position: fixed; top: 0; left: 0; height: 5px;
-            background: #F5A623; width: 0%; z-index: 9999;
-            transition: width 0.2s ease;
-            box-shadow: 0 2px 10px rgba(245, 166, 35, 0.4);
-        }
+    /* 3. Sombras e Estados de Foco */
+    .tilda-shadow { box-shadow: 0 20px 40px -10px rgba(0,0,0,0.05); }
 
-        /* 4. Efeito Reveal (Scroll) */
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+    .input-focus { transition: all 0.3s ease; }
+    .input-focus:focus { 
+        border-color: #73b057; 
+        outline: none; 
+        box-shadow: 0 0 15px rgba(115, 176, 87, 0.15); 
+    }
 
-        .tilda-shadow { box-shadow: 0 20px 40px -10px rgba(0,0,0,0.05); }
-        .input-focus { transition: all 0.3s ease; }
-        .input-focus:focus { border-color: #008040; outline: none; box-shadow: 0 0 15px rgba(0, 128, 64, 0.1); }
-        .hidden-state { display: none; }
+    /* 4. Barra de Progresso e Elementos de UI */
+    #progress-bar {
+        position: fixed; top: 0; left: 0; height: 5px;
+        background: #F5A623; width: 0%; z-index: 9999;
+        transition: width 0.2s ease;
+        box-shadow: 0 2px 10px rgba(245, 166, 35, 0.4);
+    }
 
-        input[type="checkbox"]:checked + span, input[type="radio"]:checked + span {
-            color: #008040; font-weight: 700;
-        }
-    </style>
+    .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+
+    .hidden-state { display: none; }
+
+    input[type="checkbox"]:checked + span, input[type="radio"]:checked + span {
+        color: #73b057; 
+        font-weight: 700;
+    }
+</style>
 </head>
 <body class="text-gray-800">
 
