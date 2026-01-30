@@ -15,10 +15,9 @@
             extend: {
               colors: {
                 apaeGreen: '#73b057', 
-            apaeYellow: '#F5A623',
-            apaeLight: '#F9FBF9',
-            // Um tom de fundo bem clarinho baseado no novo verde
-            apaeAccentGreen: '#f1f8ee'
+                apaeYellow: '#F5A623',
+                apaeLight: '#F9FBF9',
+                apaeAccentGreen: '#f1f8ee'
               }
             }
           }
@@ -29,69 +28,52 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <style>
-    /* 1. Scrollbar Personalizada */
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #f1f1f1; }
-    ::-webkit-scrollbar-thumb { background: #73b057; border-radius: 10px; }
-    ::-webkit-scrollbar-thumb:hover { background: #5d8f46; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #73b057; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #5d8f46; }
 
-    body { 
-        font-family: 'Montserrat', sans-serif; 
-        background-color: #F9FBF9;
-        /* Marca d'água sutil com o novo verde institucional */
-        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2373b057' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4v-4H4v4H0v2h4v4h2v-4h4v-2H6zM36 4v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    }
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            background-color: #F9FBF9;
+            background-image: url("data:image/svg+xml,%3Csvg width='64' height='64' viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 16c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm0-2c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6zm33.414-6l5.9-5.9L45.9 0l-5.9 5.9-5.9-5.9L32.7 0l5.9 5.9-5.9 5.9 1.414 1.414 5.9-5.9 5.9 5.9 1.414-1.414-5.9-5.9zM40 32c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm0-2c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6zM9.414 40l5.9-5.9L16.72 32l-5.9 5.9-5.9-5.9L3.515 32l5.9 5.9-5.9 5.9 1.414 1.414 5.9-5.9 5.9 5.9 1.414-1.414-5.9-5.9zM32 48c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm0-2c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6zM56 32c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm0-2c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6zM24 64c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm0-2c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6zm33.414-6l5.9-5.9L61.9 48l-5.9 5.9-5.9-5.9L48.7 48l5.9 5.9-5.9 5.9 1.414 1.414 5.9-5.9 5.9 5.9 1.414-1.414-5.9-5.9zM8 64c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm0-2c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6z' fill='%2373b057' fill-opacity='0.05'/%3E%3C/svg%3E");
+        }
 
-    /* 2. Header Animado com Gradiente Dinâmico */
-    .animated-header {
-        background: linear-gradient(-45deg, #73b057, #5d8f46, #73b057, #8bc671);
-        background-size: 400% 400%;
-        animation: gradientShift 12s ease infinite;
-    }
-    @keyframes gradientShift {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-    }
+        .animated-header {
+            background: linear-gradient(-45deg, #73b057, #5d8f46, #73b057, #8bc671);
+            background-size: 400% 400%;
+            animation: gradientShift 12s ease infinite;
+        }
+        @keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 
-    /* 3. Sombras e Estados de Foco */
-    .tilda-shadow { box-shadow: 0 20px 40px -10px rgba(0,0,0,0.05); }
+        .tilda-shadow { box-shadow: 0 20px 40px -10px rgba(0,0,0,0.05); }
 
-    .input-focus { transition: all 0.3s ease; }
-    .input-focus:focus { 
-        border-color: #73b057; 
-        outline: none; 
-        box-shadow: 0 0 15px rgba(115, 176, 87, 0.15); 
-    }
+        .input-focus { transition: all 0.3s ease; border-width: 2px; }
+        .input-focus:focus { border-color: #73b057; outline: none; box-shadow: 0 0 15px rgba(115, 176, 87, 0.15); }
 
-    /* 4. Barra de Progresso e Elementos de UI */
-    #progress-bar {
-        position: fixed; top: 0; left: 0; height: 5px;
-        background: #F5A623; width: 0%; z-index: 9999;
-        transition: width 0.2s ease;
-        box-shadow: 0 2px 10px rgba(245, 166, 35, 0.4);
-    }
+        /* Estilo iOS Switch */
+        .switch { position: relative; display: inline-block; width: 50px; height: 26px; }
+        .switch input { opacity: 0; width: 0; height: 0; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 34px; }
+        .slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 4px; bottom: 4px; background-color: white; transition: .4s; border-radius: 50%; }
+        input:checked + .slider { background-color: #73b057; }
+        input:checked + .slider:before { transform: translateX(24px); }
 
-    .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
-    .reveal.active { opacity: 1; transform: translateY(0); }
-
-    .hidden-state { display: none; }
-
-    input[type="checkbox"]:checked + span, input[type="radio"]:checked + span {
-        color: #73b057; 
-        font-weight: 700;
-    }
-</style>
+        #progress-bar { position: fixed; top: 0; left: 0; height: 5px; background: #F5A623; width: 0%; z-index: 9999; transition: width 0.2s ease; }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .hidden-state { display: none; }
+    </style>
 </head>
 <body class="text-gray-800">
 
     <div id="progress-bar"></div>
 
-    <header class="animated-header text-white py-24 px-6 relative text-center shadow-lg">
+    <header class="animated-header text-white py-24 px-6 text-center shadow-lg">
         <div class="max-w-4xl mx-auto relative z-10">
             <h1 class="text-4xl md:text-5xl font-bold mb-4 tracking-tight drop-shadow-md">Hub de Projetos e Ideias APAE</h1>
             <p class="text-xl font-light opacity-90 mb-8 tracking-wide">Setor de Captação de Recursos</p>
-            <div class="h-2 w-32 bg-apaeYellow mx-auto rounded-full shadow-inner"></div>
+            <div class="h-2 w-32 bg-apaeYellow mx-auto rounded-full"></div>
         </div>
     </header>
 
@@ -115,15 +97,15 @@
                 <strong>Não há limite de envios.</strong> Encorajamos todos os setores a registrar desde pequenas necessidades de materiais até grandes projetos de inovação. Vamos transformar sua ideia em recurso!
             </p>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="p-8 rounded-2xl bg-apaeAccentGreen/50 border border-white hover:shadow-lg transition-all duration-300">
+                <div class="p-8 rounded-2xl bg-apaeAccentGreen/50 border border-white">
                     <h3 class="font-bold text-lg mb-2 text-apaeGreen">Prioridade Estratégica</h3>
                     <p class="text-sm text-gray-600">Ideias não registradas correm o risco de serem esquecidas. Aqui, elas entram no nosso radar estratégico alimentando um banco de dados.</p>
                 </div>
-                <div class="p-8 rounded-2xl bg-apaeAccentGreen/50 border border-white hover:shadow-lg transition-all duration-300">
+                <div class="p-8 rounded-2xl bg-apaeAccentGreen/50 border border-white">
                     <h3 class="font-bold text-lg mb-2 text-apaeGreen">Refino Técnico</h3>
                     <p class="text-sm text-gray-600">Nosso setor irá transformar sua demanda em um projeto de alto nível, pronto para editais.</p>
                 </div>
-                <div class="p-8 rounded-2xl bg-apaeAccentGreen/50 border border-white hover:shadow-lg transition-all duration-300">
+                <div class="p-8 rounded-2xl bg-apaeAccentGreen/50 border border-white">
                     <h3 class="font-bold text-lg mb-2 text-apaeGreen">Agilidade Real</h3>
                     <p class="text-sm text-gray-600">Com as necessidades já estruturadas, ganhamos velocidade para aproveitar oportunidades de financiamento que surgem com prazos curtos.</p>
                 </div>
@@ -143,17 +125,15 @@
                 <div class="p-10 space-y-8 bg-gray-50/50">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div>
-                             <label class="block text-sm font-bold text-gray-700 mb-3  tracking-tighter">Setor / Área *</label>
+                            <label class="block text-sm font-bold text-gray-700 mb-3 tracking-tighter">Setor / Área *</label>
                             <input type="text" name="setor" required class="input-focus w-full p-4 border-2 border-gray-200 rounded-xl bg-white">
                         </div>
                         <div>
-                            <label class="block text-sm font-bold text-gray-700 mb-3  tracking-tighter">Proponente *</label>
+                            <label class="block text-sm font-bold text-gray-700 mb-3 tracking-tighter">Proponente *</label>
                             <input type="text" name="proponente" required class="input-focus w-full p-4 border-2 border-gray-200 rounded-xl bg-white">
                         </div>
-                    </div>
-                    <div class="md:col-span-2">
-                        <div>
-                             <label class="block text-sm font-bold text-gray-700 mb-3 tracking-tighter">Nome/Titúlo do Projeto *</label>
+                        <div class="md:col-span-2">
+                            <label class="block text-sm font-bold text-gray-700 mb-3 tracking-tighter">Nome/Titúlo do Projeto *</label>
                             <input type="text" name="nome_projeto" required class="input-focus w-full p-4 border-2 border-gray-200 rounded-xl bg-white">
                         </div>
                     </div>
@@ -161,7 +141,7 @@
             </div>
 
             <div class="bg-white rounded-2xl tilda-shadow overflow-hidden reveal">
-                 <div class="bg-apaeGreen p-6 flex items-center">
+                <div class="bg-apaeGreen p-6 flex items-center">
                     <i class="fa-solid fa-stethoscope text-apaeYellow text-2xl mr-4 pl-4"></i>
                     <h3 class="text-lg font-bold text-white uppercase tracking-widest">2. Diagnóstico de Impacto</h3>
                 </div>
@@ -175,6 +155,14 @@
                         <label class="block text-base font-bold text-orange-900 mb-2 uppercase tracking-tight"><i class="fa-solid fa-triangle-exclamation mr-2"></i>Quais as consequências de NÃO sanarmos isso? *</label>
                         <span class="text-sm text-orange-800 mb-4 block italic text-opacity-90 ml-8">Foque na urgência: impactos negativos em usuários, riscos à equipe, custos extras ou imagem institucional.</span>
                         <textarea name="consequencias" rows="5" required class="w-full p-4 border-2 border-orange-200 rounded-xl input-focus bg-white" placeholder="Se não resolvermos isso, o que pode acontecer de ruim?"></textarea>
+                        
+                        <div class="mt-6 flex items-center bg-white p-4 rounded-xl border border-orange-100">
+                            <label class="switch">
+                                <input type="checkbox" name="urgencia_critica" value="Sim">
+                                <span class="slider"></span>
+                            </label>
+                            <span class="ml-4 text-sm font-bold text-orange-900">Esta demanda impede ou prejudica o atendimento imediato?</span>
+                        </div>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -191,11 +179,11 @@
             </div>
 
             <div class="bg-white rounded-2xl tilda-shadow overflow-hidden reveal">
-                 <div class="bg-apaeGreen p-6 flex items-center">
+                <div class="bg-apaeGreen p-6 flex items-center">
                     <i class="fa-solid fa-coins text-apaeYellow text-2xl mr-4 pl-4"></i>
                     <h3 class="text-lg font-bold text-white uppercase tracking-widest">3. Viabilidade Técnica</h3>
                 </div>
-                <div class="p-10 space-y-12 bg-gray-50/50"> 
+                <div class="p-10 space-y-12 bg-gray-50/50">
                     <div>
                         <label class="block text-base font-bold text-gray-800 mb-6">Recursos Necessários *</label>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -216,280 +204,182 @@
                                 <span class="ml-4 text-gray-700 font-medium text-sm">Material de consumo (Jogos, papelaria, mat de limpeza)</span>
                             </label>
                             <div class="md:col-span-2 mt-2">
-            <label class="block text-[10px] font-bold text-gray-400 uppercase mb-1 ml-1">Outro recurso (Especifique abaixo)</label>
-            <input type="text" name="recurso_outros" 
-                   class="input-focus w-full p-4 border-2 border-white bg-white rounded-xl text-sm shadow-sm" 
-                   placeholder="Ex: Veículo, Software específico, Mobiliário planejado...">
-        </div>
+                                <label class="block text-[10px] font-bold text-gray-400 uppercase mb-1 ml-1">Outro recurso (Especifique abaixo)</label>
+                                <input type="text" name="recurso_outros" class="input-focus w-full p-4 border-2 border-white bg-white rounded-xl text-sm shadow-sm" placeholder="Ex: Veículo, Software específico, Mobiliário planejado...">
+                            </div>
                         </div>
                     </div>
 
                     <div class="bg-green-50 p-8 rounded-2xl border border-green-100">
                         <label class="block text-lg font-bold text-apaeGreen mb-4">Status do orçamento/cotação *</label>
                         <div class="space-y-4">
-                            <label class="flex items-center p-4 bg-white rounded-xl cursor-pointer border-2 border-transparent hover:border-apaeGreen transition shadow-sm">
-                                <input type="radio" name="status_orc" value="Estimativa" class="w-6 h-6 accent-apaeGreen mr-4" required> 
-                                <span class="text-sm font-medium">Tenho uma estimativa simples (Possuo link/preço de referencia)</span>
+                            <label class="flex items-center p-4 bg-white rounded-xl border-2 border-transparent hover:border-apaeGreen transition shadow-sm">
+                                <input type="radio" name="status_orc" value="Estimativa" class="w-6 h-6 accent-apaeGreen mr-4" required> <span class="text-sm font-medium text-gray-700">Tenho uma estimativa simples (Possuo link/preço de referencia)</span>
                             </label>
-                            <label class="flex items-center p-4 bg-white rounded-xl cursor-pointer border-2 border-transparent hover:border-apaeGreen transition shadow-sm">
-                                <input type="radio" name="status_orc" value="Cotações" class="w-6 h-6 accent-apaeGreen mr-4"> 
-                                <span class="text-sm font-medium">Tenho 1-2 cotações preliminares (Não oficiais mas serve como noção de custo)</span>
+                            <label class="flex items-center p-4 bg-white rounded-xl border-2 border-transparent hover:border-apaeGreen transition shadow-sm">
+                                <input type="radio" name="status_orc" value="Cotações" class="w-6 h-6 accent-apaeGreen mr-4"> <span class="text-sm font-medium text-gray-700">Tenho 1-2 cotações preliminares (Não oficiais mas serve como noção de custo)</span>
                             </label>
-                             <label class="flex items-center p-4 bg-white rounded-xl cursor-pointer border-2 border-transparent hover:border-apaeGreen transition shadow-sm">
-                                <input type="radio" name="status_orc" value="Apoio" class="w-6 h-6 accent-apaeGreen mr-4"> 
-                                <span class="text-sm font-medium">Tenho 3 cotações oficiais</span>
+                            <label class="flex items-center p-4 bg-white rounded-xl border-2 border-transparent hover:border-apaeGreen transition shadow-sm">
+                                <input type="radio" name="status_orc" value="3 Oficiais" class="w-6 h-6 accent-apaeGreen mr-4"> <span class="text-sm font-medium text-gray-700">Tenho 3 cotações oficiais</span>
                             </label>
-                            <label class="flex items-center p-4 bg-white rounded-xl cursor-pointer border-2 border-transparent hover:border-apaeGreen transition shadow-sm">
-                                <input type="radio" name="status_orc" value="Apoio" class="w-6 h-6 accent-apaeGreen mr-4"> 
-                                <span class="text-sm font-medium">Preciso de apoio para orçar (Setor de captação/projetos/compras fará a cotação)</span>
+                            <label class="flex items-center p-4 bg-white rounded-xl border-2 border-transparent hover:border-apaeGreen transition shadow-sm">
+                                <input type="radio" name="status_orc" value="Apoio" class="w-6 h-6 accent-apaeGreen mr-4"> <span class="text-sm font-medium text-gray-700">Preciso de apoio para orçar (Setor de captação/projetos/compras fará a cotação)</span>
                             </label>
-                            <label class="flex items-center p-4 bg-white rounded-xl cursor-pointer border-2 border-transparent hover:border-apaeGreen transition shadow-sm">
-                                <input type="radio" name="status_orc" value="Apoio" class="w-6 h-6 accent-apaeGreen mr-4"> 
-                                <span class="text-sm font-medium">Não se aplica (Projeto sem custo financeiro)</span>
+                            <label class="flex items-center p-4 bg-white rounded-xl border-2 border-transparent hover:border-apaeGreen transition shadow-sm">
+                                <input type="radio" name="status_orc" value="Não se aplica" class="w-6 h-6 accent-apaeGreen mr-4"> <span class="text-sm font-medium text-gray-700">Não se aplica (Projeto sem custo financeiro)</span>
                             </label>
                         </div>
                     </div>
 
                     <div>
-                        <label class="block text-base font-bold text-gray-800 mb-6  tracking-tighter">Necessita de serviços especializados? *</label>
+                        <label class="block text-base font-bold text-gray-800 mb-6 tracking-tighter">Necessita de serviços especializados? *</label>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            <label class="flex items-center p-5 border-2 border-white bg-white rounded-xl text-sm cursor-pointer hover:border-apaeGreen transition shadow-sm">
-                                <input type="radio" name="especializado" value="Não" class="w-5 h-5 accent-apaeGreen mr-3" required> Não, compra simples.
-                            </label>
-                            <label class="flex items-center p-5 border-2 border-white bg-white rounded-xl text-sm cursor-pointer hover:border-apaeGreen transition shadow-sm">
-                                <input type="radio" name="especializado" value="Sim" class="w-5 h-5 accent-apaeGreen mr-3"> Sim.
-                            </label>
-                            <label class="flex items-center p-5 border-2 border-white bg-white rounded-xl text-sm cursor-pointer hover:border-apaeGreen transition shadow-sm">
-                                <input type="radio" name="especializado" value="Não sei" class="w-5 h-5 accent-apaeGreen mr-3"> Não sei informar.
-                            </label>
+                            <label class="flex items-center p-5 border-2 border-white bg-white rounded-xl text-sm cursor-pointer hover:border-apaeGreen transition shadow-sm"><input type="radio" name="especializado" value="Não" class="w-5 h-5 accent-apaeGreen mr-3" required> Não, compra simples.</label>
+                            <label class="flex items-center p-5 border-2 border-white bg-white rounded-xl text-sm cursor-pointer hover:border-apaeGreen transition shadow-sm"><input type="radio" name="especializado" value="Sim" class="w-5 h-5 accent-apaeGreen mr-3"> Sim.</label>
+                            <label class="flex items-center p-5 border-2 border-white bg-white rounded-xl text-sm cursor-pointer hover:border-apaeGreen transition shadow-sm"><input type="radio" name="especializado" value="Não sei" class="w-5 h-5 accent-apaeGreen mr-3"> Não sei informar.</label>
                         </div>
                     </div>
 
                     <div>
-                        <label class="block text-base font-bold text-gray-800 mb-4  tracking-tighter">Observações / Notas Adicionais</label>
+                        <label class="block text-base font-bold text-gray-800 mb-4 tracking-tighter">Observações / Notas Adicionais</label>
                         <textarea name="observacoes" rows="4" class="input-focus w-full p-5 border-2 border-gray-200 rounded-xl bg-white" placeholder="Contexto extra..."></textarea>
                     </div>
 
                     <div class="pt-6">
-    <label class="block text-base font-bold text-gray-800 mb-3">Anexos (Opcional)</label>
-    
-    <div class="border-4 border-dashed border-green-100 p-10 text-center rounded-2xl bg-white hover:bg-green-50 cursor-pointer relative transition-all group">
-        <input type="file" id="fileInput" multiple class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
-        <i class="fa-solid fa-cloud-arrow-up text-apaeGreen text-5xl mb-4 group-hover:scale-110 transition-transform"></i>
-        <span class="block text-base font-bold text-gray-700 group-hover:text-apaeGreen">Clique ou arraste múltiplos arquivos</span>
-        <p class="text-xs text-gray-400 mt-2 italic font-medium">PDF, Imagens, Excel, Word</p>
-    </div>
-
-    <div id="fileList" class="mt-4 space-y-2">
-        </div>
-</div>
+                        <label class="block text-base font-bold text-gray-800 mb-3 uppercase tracking-tighter">Anexos (Opcional)</label>
+                        <div class="border-4 border-dashed border-green-100 p-10 text-center rounded-2xl bg-white hover:bg-green-50 cursor-pointer relative transition-all group">
+                            <input type="file" id="fileInput" multiple class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
+                            <i class="fa-solid fa-cloud-arrow-up text-apaeGreen text-5xl mb-4 group-hover:scale-110 transition-transform"></i>
+                            <span class="block text-base font-bold text-gray-700 group-hover:text-apaeGreen uppercase">Múltiplos arquivos</span>
+                            <p class="text-xs text-gray-400 mt-2 italic font-medium">PDF, Imagens, Excel, Word</p>
+                        </div>
+                        <div id="fileList" class="mt-4 space-y-2"></div>
+                    </div>
                 </div>
             </div>
 
             <div class="pt-20 pb-10 flex flex-col items-center reveal">
-                <button type="submit" class="w-full md:w-2/3 bg-apaeGreen hover:bg-green-800 text-white font-bold py-7 rounded-full text-2xl shadow-2xl transition-all transform hover:scale-[1.03] flex items-center justify-center">
+                <button type="submit" class="w-full md:w-2/3 bg-apaeGreen hover:bg-[#5d8f46] text-white font-bold py-7 rounded-full text-2xl shadow-2xl transition-all transform hover:scale-[1.03] flex items-center justify-center uppercase">
                     ENVIAR PARA CAPTAÇÃO <i class="fa-solid fa-paper-plane ml-5 text-xl"></i>
                 </button>
-                <p class="text-center text-[10px] text-gray-400 mt-10 tracking-[0.3em] uppercase font-bold italic">
-                    Tecnologia a serviço da inclusão • APAE Brusque
-                </p>
             </div>
         </form>
     </main>
 
     <footer class="bg-gray-50 pt-16 pb-12 px-6 border-t border-gray-200">
-    <div class="max-w-6xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-start text-center md:text-left">
-            
-            <div class="space-y-4">
-                <h4 class="text-apaeGreen font-bold uppercase tracking-widest text-xs mb-4">Onde Estamos</h4>
-                <div class="flex items-start justify-center md:justify-start space-x-3">
-                    <i class="fa-solid fa-location-dot text-apaeYellow mt-1"></i>
-                    <p class="text-sm text-gray-600 leading-relaxed">
-                        Av. Hugo Schlosser, 236<br>
-                        Jardim Maluche, Brusque - SC<br>
-                        CEP: 88354-300
-                    </p>
-                </div>
-            </div>
-
-            <div class="flex flex-col items-center justify-center space-y-6">
-                <img src="logoFooter.png" alt="APAE Logo" class="h-32 md:h-40 w-auto opacity-90 transition-opacity hover:opacity-100">
-                <div class="text-center">
-                    <p class="font-bold text-gray-800 text-lg tracking-tight">
-                        <a href="tel:4733512482" class="hover:text-apaeGreen transition">(47) 3351-2482</a>
-                    </p>
-                    <p class="text-apaeGreen font-medium text-sm mt-1">
-                        <a href="mailto:contato@apaebrusque.org.br" class="border-b-2 border-apaeYellow pb-1 hover:text-[#5d8f46] transition">
-                            contato@apaebrusque.org.br
-                        </a>
-                    </p>
-                </div>
-            </div>
-
-            <div class="space-y-8 flex flex-col items-center md:items-end">
-                <div class="text-center md:text-right">
-                    <h4 class="text-apaeGreen font-bold uppercase tracking-widest text-xs mb-5">Conecte-se Conosco</h4>
-                    <div class="flex space-x-4">
-                        <a href="https://www.instagram.com/apaebrusque/" target="_blank" class="bg-apaeYellow text-gray-900 w-11 h-11 rounded-full flex items-center justify-center hover:bg-apaeGreen hover:text-white hover:rotate-6 hover:scale-110 transition-all duration-300 shadow-sm">
-                            <i class="fa-brands fa-instagram text-xl"></i>
-                        </a>
-                        <a href="https://www.youtube.com/@ApaeBrusque" target="_blank" class="bg-apaeYellow text-gray-900 w-11 h-11 rounded-full flex items-center justify-center hover:bg-apaeGreen hover:text-white hover:rotate-6 hover:scale-110 transition-all duration-300 shadow-sm">
-                            <i class="fa-brands fa-youtube text-xl"></i>
-                        </a>
-                        <a href="https://www.facebook.com/apaebrusque/" target="_blank" class="bg-apaeYellow text-gray-900 w-11 h-11 rounded-full flex items-center justify-center hover:bg-apaeGreen hover:text-white hover:rotate-6 hover:scale-110 transition-all duration-300 shadow-sm">
-                            <i class="fa-brands fa-facebook-f text-xl"></i>
-                        </a>
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-start text-center md:text-left">
+                <div class="space-y-4">
+                    <h4 class="text-apaeGreen font-bold uppercase tracking-widest text-xs mb-4">Onde Estamos</h4>
+                    <div class="flex items-start justify-center md:justify-start space-x-3">
+                        <i class="fa-solid fa-location-dot text-apaeYellow mt-1"></i>
+                        <p class="text-sm text-gray-600 leading-relaxed">Av. Hugo Schlosser, 236<br>Jardim Maluche, Brusque - SC</p>
                     </div>
                 </div>
-                <div class="text-right">
+                <div class="flex flex-col items-center justify-center space-y-6">
+                    <img src="logoFooter.png" alt="APAE Logo" class="h-32 md:h-40 w-auto">
+                    <div class="text-center">
+                        <p class="font-bold text-gray-800 text-lg tracking-tight">(47) 3351-2482</p>
+                        <p class="text-apaeGreen font-medium text-sm mt-1">contato@apaebrusque.org.br</p>
+                    </div>
+                </div>
+                <div class="space-y-8 flex flex-col items-center md:items-end text-center md:text-right">
+                    <div>
+                        <h4 class="text-apaeGreen font-bold uppercase tracking-widest text-xs mb-5">Conecte-se Conosco</h4>
+                        <div class="flex space-x-4">
+                            <a href="https://www.instagram.com/apaebrusque/" target="_blank" class="bg-apaeYellow text-gray-900 w-11 h-11 rounded-full flex items-center justify-center hover:bg-apaeGreen hover:text-white transition-all"><i class="fa-brands fa-instagram text-xl"></i></a>
+                            <a href="https://www.youtube.com/@ApaeBrusque" target="_blank" class="bg-apaeYellow text-gray-900 w-11 h-11 rounded-full flex items-center justify-center hover:bg-apaeGreen hover:text-white transition-all"><i class="fa-brands fa-youtube text-xl"></i></a>
+                            <a href="https://www.facebook.com/apaebrusque/" target="_blank" class="bg-apaeYellow text-gray-900 w-11 h-11 rounded-full flex items-center justify-center hover:bg-apaeGreen hover:text-white transition-all"><i class="fa-brands fa-facebook-f text-xl"></i></a>
+                        </div>
+                    </div>
                     <p class="text-[10px] text-gray-400 uppercase font-black tracking-widest">© 2026 APAE Brusque</p>
-                    <p class="text-[9px] text-gray-300 uppercase mt-1">Hub de Projetos e Ideias</p>
                 </div>
             </div>
+            <div class="mt-16 pt-8 border-t border-dashed border-gray-200 text-center">
+                <p class="text-[10px] font-bold text-gray-300 uppercase tracking-[0.5em]">Desenvolvido por Lucas Picon</p>
+            </div>
         </div>
-
-        <div class="mt-16 pt-8 border-t border-dashed border-gray-200 text-center">
-            <p class="text-[10px] font-bold text-gray-300 uppercase tracking-[0.5em]">Desenvolvido por Lucas Picon</p>
-        </div>
-    </div>
-</footer>
+    </footer>
 
     <script>
-    // 1. DATA AUTOMÁTICA E INICIALIZAÇÃO
-    document.addEventListener('DOMContentLoaded', () => {
-        const dataCampo = document.getElementById('data_proposta_hidden');
-        if(dataCampo) dataCampo.value = new Date().toLocaleDateString('pt-BR');
-        reveal();
-    });
-
-    // 2. BARRA DE PROGRESSO E REVEAL AO SCROLL
-    window.onscroll = function() {
-        let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        let scrolled = (winScroll / height) * 100;
-        document.getElementById("progress-bar").style.width = scrolled + "%";
-        reveal();
-    };
-
-    function reveal() {
-        let reveals = document.querySelectorAll(".reveal");
-        reveals.forEach(el => {
-            let windowHeight = window.innerHeight;
-            let elementTop = el.getBoundingClientRect().top;
-            if (elementTop < windowHeight - 100) {
-                el.classList.add("active");
-            }
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('data_proposta_hidden').value = new Date().toLocaleDateString('pt-BR');
+            reveal();
         });
-    }
 
-    // 3. EFEITO DE CONFETE (CELEBRAÇÃO)
-    function dispararConfete() {
-        var duration = 4 * 1000;
-        var end = Date.now() + duration;
-        (function frame() {
-            confetti({ particleCount: 4, angle: 60, spread: 55, origin: { x: 0 }, colors: ['#008040', '#F5A623'] });
-            confetti({ particleCount: 4, angle: 120, spread: 55, origin: { x: 1 }, colors: ['#008040', '#F5A623'] });
-            if (Date.now() < end) requestAnimationFrame(frame);
-        }());
-    }
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            document.getElementById("progress-bar").style.width = (winScroll / height) * 100 + "%";
+            reveal();
+        };
 
-    // 4. GESTÃO DE MÚLTIPLOS ARQUIVOS
-    let selectedFiles = []; 
-    const fileInput = document.getElementById('fileInput');
-    const fileListContainer = document.getElementById('fileList');
-
-    fileInput.addEventListener('change', (e) => {
-        const files = Array.from(e.target.files);
-        
-        files.forEach(file => {
-            const reader = new FileReader();
-            reader.onload = (event) => {
-                selectedFiles.push({
-                    name: file.name,
-                    type: file.type,
-                    size: (file.size / 1024).toFixed(1) + " KB",
-                    base64: event.target.result
-                });
-                renderFileList();
-            };
-            reader.readAsDataURL(file);
-        });
-        fileInput.value = ""; // Limpa para permitir re-seleção
-    });
-
-    function renderFileList() {
-        fileListContainer.innerHTML = "";
-        selectedFiles.forEach((file, index) => {
-            const fileDiv = document.createElement('div');
-            fileDiv.className = "flex items-center justify-between bg-white p-3 rounded-xl border border-gray-200 shadow-sm transition-all animate-fade-in mb-2";
-            fileDiv.innerHTML = `
-                <div class="flex items-center overflow-hidden">
-                    <i class="fa-solid fa-file-lines text-apaeGreen mr-3"></i>
-                    <div class="truncate">
-                        <p class="text-xs font-bold text-gray-700 truncate">${file.name}</p>
-                        <p class="text-[10px] text-gray-400">${file.size}</p>
-                    </div>
-                </div>
-                <button type="button" onclick="removeFile(${index})" class="text-red-400 hover:text-red-600 p-2 ml-2 transition">
-                    <i class="fa-solid fa-trash-can"></i>
-                </button>
-            `;
-            fileListContainer.appendChild(fileDiv);
-        });
-    }
-
-    function removeFile(index) {
-        selectedFiles.splice(index, 1);
-        renderFileList();
-    }
-
-    // 5. ENVIO E INTEGRAÇÃO DOS DADOS
-    const form = document.getElementById('hubForm');
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbzuP6MMjQeacZtlG_zcvIf02vyapmtTWZrjduoHFxNVnfE0a8XPb7XXc-gJd7U6dajW/exec';
-
-    form.addEventListener('submit', e => {
-        e.preventDefault();
-        const btn = form.querySelector('button[type="submit"]');
-        btn.disabled = true;
-        btn.innerHTML = '<i class="fa-solid fa-fan fa-spin mr-3"></i> PROCESSANDO...';
-
-        const formData = new FormData(form);
-        const dataObj = Object.fromEntries(formData.entries());
-        
-        // Coleta de Recursos (Checkboxes + Campo "Outros")
-        const recursos = [];
-        form.querySelectorAll('input[name="recurso[]"]:checked').forEach(cb => { recursos.push(cb.value); });
-        
-        const campoOutros = form.querySelector('input[name="recurso_outros"]');
-        if (campoOutros && campoOutros.value.trim() !== "") {
-            recursos.push("Outros: " + campoOutros.value);
+        function reveal() {
+            document.querySelectorAll(".reveal").forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add("active");
+            });
         }
-        dataObj.recurso = recursos.join(", ");
 
-        // Inserção dos múltiplos arquivos (enviados como String JSON)
-        dataObj.allFiles = JSON.stringify(selectedFiles);
+        function dispararConfete() {
+            var duration = 4 * 1000;
+            var end = Date.now() + duration;
+            (function frame() {
+                confetti({ particleCount: 4, angle: 60, spread: 55, origin: { x: 0 }, colors: ['#73b057', '#F5A623'] });
+                confetti({ particleCount: 4, angle: 120, spread: 55, origin: { x: 1 }, colors: ['#73b057', '#F5A623'] });
+                if (Date.now() < end) requestAnimationFrame(frame);
+            }());
+        }
 
-        fetch(scriptURL, { 
-            method: 'POST', 
-            mode: 'no-cors', 
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: new URLSearchParams(dataObj) 
-        })
-        .then(() => {
-            document.getElementById('form-container').classList.add('hidden-state');
-            document.getElementById('main-form-section').classList.add('hidden-state');
-            document.getElementById('success-message').classList.remove('hidden-state');
-            dispararConfete();
-            window.scrollTo(0, 0);
-        })
-        .catch((error) => {
-            console.error('Erro:', error);
-            alert('Falha na conexão. Tente novamente.');
-            btn.disabled = false;
-            btn.innerHTML = 'ENVIAR PARA CAPTAÇÃO <i class="fa-solid fa-paper-plane ml-3"></i>';
+        let selectedFiles = [];
+        const fileInput = document.getElementById('fileInput');
+        const fileListContainer = document.getElementById('fileList');
+
+        fileInput.addEventListener('change', (e) => {
+            Array.from(e.target.files).forEach(file => {
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    selectedFiles.push({ name: file.name, type: file.type, size: (file.size / 1024).toFixed(1) + " KB", base64: event.target.result });
+                    renderFileList();
+                };
+                reader.readAsDataURL(file);
+            });
+            fileInput.value = "";
         });
-    });
-</script>
+
+        function renderFileList() {
+            fileListContainer.innerHTML = "";
+            selectedFiles.forEach((file, index) => {
+                const fileDiv = document.createElement('div');
+                fileDiv.className = "flex items-center justify-between bg-white p-3 rounded-xl border border-gray-200 shadow-sm mb-2";
+                fileDiv.innerHTML = `<div class="flex items-center truncate text-xs font-bold text-gray-700"><i class="fa-solid fa-file-lines text-apaeGreen mr-3"></i>${file.name}</div><button type="button" onclick="removeFile(${index})" class="text-red-400 hover:text-red-600 p-2"><i class="fa-solid fa-trash-can"></i></button>`;
+                fileListContainer.appendChild(fileDiv);
+            });
+        }
+
+        function removeFile(index) { selectedFiles.splice(index, 1); renderFileList(); }
+
+        document.getElementById('hubForm').addEventListener('submit', e => {
+            e.preventDefault();
+            const btn = e.target.querySelector('button[type="submit"]');
+            btn.disabled = true; btn.innerHTML = '<i class="fa-solid fa-fan fa-spin mr-3"></i> PROCESSANDO...';
+
+            const formData = new FormData(e.target);
+            const dataObj = Object.fromEntries(formData.entries());
+            const recursos = [];
+            e.target.querySelectorAll('input[name="recurso[]"]:checked').forEach(cb => recursos.push(cb.value));
+            if (dataObj.recurso_outros) recursos.push("Outros: " + dataObj.recurso_outros);
+            dataObj.recurso = recursos.join(", ");
+            dataObj.allFiles = JSON.stringify(selectedFiles);
+
+            fetch('https://script.google.com/macros/s/AKfycbzuP6MMjQeacZtlG_zcvIf02vyapmtTWZrjduoHFxNVnfE0a8XPb7XXc-gJd7U6dajW/exec', { 
+                method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(dataObj) 
+            }).then(() => {
+                document.getElementById('form-container').classList.add('hidden-state');
+                document.getElementById('main-form-section').classList.add('hidden-state');
+                document.getElementById('success-message').classList.remove('hidden-state');
+                dispararConfete(); window.scrollTo(0, 0);
+            });
+        });
+    </script>
 </body>
 </html>
